@@ -46,9 +46,9 @@ export default function Home() {
       <div className="max-w-[1200px] mx-auto">
         <div className="flex flex-col lg:flex-row justify-center gap-4">
           {/* Left Ad Block */}
-          <div className="hidden md:block sticky top-4">
+          {/* <div className="hidden md:block sticky text-black top-4">
             <AdBlock position="Left" />
-          </div>
+          </div> */}
 
           {/* Main Content */}
           <div className="w-full max-w-3xl bg-white rounded-xl shadow-md p-6">
@@ -82,7 +82,6 @@ export default function Home() {
               />
 
               <ErrorMessage error={error} />
-
               <GenerateButton
                 onClick={() => 
                   handleGenerate(
@@ -101,7 +100,7 @@ export default function Home() {
               <CoverLetterOutput
                 coverLetter={coverLetter}
                 setCoverLetter={setCoverLetter}
-                onDownload={() => handleDownload(coverLetter)}
+                onDownload={(outputFileType) => handleDownload(coverLetter, outputFileType)}
               />
               
               {coverLetter && <WordCount text={coverLetter} />}
@@ -109,9 +108,9 @@ export default function Home() {
           </div>
 
           {/* Right Ad Block */}
-          <div className="hidden md:block sticky top-4">
+          {/* <div className="hidden md:block sticky text-black top-4">
             <AdBlock position="Right" />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

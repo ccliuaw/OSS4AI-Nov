@@ -4,7 +4,10 @@ import { useState } from 'react';
 
 export function CoverLetterOutput({ coverLetter, setCoverLetter, onDownload }) {
   const coverLetterRef = useRef(null);
+  const downloadButtonRef = useRef(null);
+
   const [copied, setCopied] = useState(false);
+  const [showDownloadMenu, setShowDownloadMenu] = useState(false);
 
   useEffect(() => {
     if (coverLetter && coverLetterRef.current) {
@@ -26,6 +29,11 @@ export function CoverLetterOutput({ coverLetter, setCoverLetter, onDownload }) {
     }
   };
 
+  const handleDownload = (format) => {
+    onDownload(format);
+    setShowDownloadMenu(false);
+  };
+
   if (!coverLetter) return null;
 
   return (
@@ -40,13 +48,31 @@ export function CoverLetterOutput({ coverLetter, setCoverLetter, onDownload }) {
           >
             {copied ? <CheckCheck size={20} /> : <Copy size={20} />}
           </button>
-          <button
-            onClick={onDownload}
-            className="p-2 text-blue-600 hover:text-blue-700 rounded-lg hover:bg-blue-50 transition-colors"
-            title="Download"
-          >
-            <Download size={20} />
-          </button>
+          <div className="relative" ref={downloadButtonRef}>
+            <button
+              onClick={() => setShowDownloadMenu(!showDownloadMenu)}
+              className="p-2 rounded-lg transition-colors hover:bg-gray-100 text-gray-600"
+              title="Download options"
+            >
+              <Download size={20} />
+            </button>
+            {showDownloadMenu && (
+              <div className="absolute right-0 mt-2 w-36 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-10">
+                <button
+                  onClick={() => handleDownload('pdf')}
+                  className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                >
+                  PDF
+                </button>
+                <button
+                  onClick={() => handleDownload('text')}
+                  className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                >
+                  Text
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
       <div className="relative">
