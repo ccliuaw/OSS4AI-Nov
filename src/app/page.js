@@ -9,6 +9,7 @@ import { handleWordLimitChange } from './config/handleWordLimitChange';
 import { ResumeUpload } from './components/ResumeUpload';
 import { JobDescription } from './components/JobDescription';
 import { CoverLetterOutput } from './components/CoverLetterOutput';
+import { RecommendationsOutput } from './components/RecommendationsOutput';
 import { ErrorMessage } from './components/ErrorMessage';
 import { GenerateButton } from './components/GenerateButton';
 import { StyleControls } from './components/StyleControls';
@@ -35,6 +36,7 @@ export default function Home() {
   const [resume, setResume] = useState('');
   const [jobDescription, setJobDescription] = useState('');
   const [coverLetter, setCoverLetter] = useState('');
+  const [recommendations, setRecommendations] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [fileName, setFileName] = useState('');
@@ -91,11 +93,13 @@ export default function Home() {
                     wordLimit,
                     setError,
                     setIsLoading,
-                    setCoverLetter
+                    setCoverLetter,
+                    setRecommendations
                   )
                 }
                 isLoading={isLoading}
               />
+              <RecommendationsOutput recommendations={recommendations} setRecommendations={setRecommendations}/>
 
               <CoverLetterOutput
                 coverLetter={coverLetter}
