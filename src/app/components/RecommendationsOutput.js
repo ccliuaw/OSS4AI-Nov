@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { Download, Copy, CheckCheck } from 'lucide-react';
 import { useState } from 'react';
+import ReactMarkdown from "react-markdown";
 
 export function RecommendationsOutput({ recommendations, setRecommendations}) {
   const recommendationsRef = useRef(null);
@@ -14,6 +15,10 @@ export function RecommendationsOutput({ recommendations, setRecommendations}) {
       });
     }
   }, [recommendations]);
+
+  const handleInputChange = (event) => {
+    setMarkdownText(event.target.value);
+  };
 
   if (!recommendations) return null;
 
@@ -33,11 +38,11 @@ export function RecommendationsOutput({ recommendations, setRecommendations}) {
       </div>
       <div className="relative">
         <textarea
-          value={recommendations}
-          onChange={(e) => setRecommendations(e.target.value)}
-          className="w-full h-96 p-3 border border-gray-300 rounded-lg bg-white text-black resize-vertical"
+          value={recommendations} onChange={handleInputChange} 
+          className="hidden w-full h-96 p-3 border border-gray-300 rounded-lg bg-white text-black resize-vertical"
           placeholder="Your recommendations will appear here..."
         />
+        <ReactMarkdown className="text-black">{recommendations}</ReactMarkdown>
       </div>
     </div>
   );
