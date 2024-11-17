@@ -152,7 +152,7 @@ export const getRecommendations = async (resume, jobDescription) => {
     
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-    const jobMatchPrompt = `As an expert AI recruiter, analyze the match between the candidate's resume and job description using the following structured approach:
+    const jobMatchPrompt = `As an expert AI recruiter, analyze the match between the candidate's resume and job description using the following framework to give the recommendations:
                 TASK:
                 - Calculate a match score (0-100%)
                 - Identify key alignments and gaps
@@ -179,7 +179,7 @@ export const getRecommendations = async (resume, jobDescription) => {
                   - Leadership experience (if required)
                   - Cultural fit indicators
 
-                OUTPUT FORMAT (should be in plain text, not markdown):
+                OUTPUT FORMAT:
                 1. Overall Match Score: [X%]
 
                 2. Key Alignments:
