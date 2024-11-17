@@ -9,15 +9,15 @@ export function CoverLetterOutput({ coverLetter, setCoverLetter, onDownload }) {
   const [copied, setCopied] = useState(false);
   const [showDownloadMenu, setShowDownloadMenu] = useState(false);
 
-  useEffect(() => {
-    if (coverLetter && coverLetterRef.current) {
-      // Scroll to the cover letter section when it's generated
-      coverLetterRef.current.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  }, [coverLetter]);
+  // useEffect(() => {
+  //   if (coverLetter && coverLetterRef.current) {
+  //     // Scroll to the cover letter section when it's generated
+  //     coverLetterRef.current.scrollIntoView({ 
+  //       behavior: 'smooth',
+  //       block: 'start'
+  //     });
+  //   }
+  // }, [coverLetter]);
 
   const handleCopy = async () => {
     try {

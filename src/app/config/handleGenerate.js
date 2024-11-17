@@ -1,4 +1,4 @@
-import { generateCoverLetter } from '../config/ai-config';
+import { generateCoverLetter, getRecommendations } from '../config/ai-config';
 
 export const handleGenerate = async (
   resume, 
@@ -7,7 +7,8 @@ export const handleGenerate = async (
   wordLimit, 
   setError, 
   setIsLoading, 
-  setCoverLetter
+  setCoverLetter,
+  setRecommendations
 ) => {
   if (!resume.trim() || !jobDescription.trim()) {
     console.log('Missing required fields');
@@ -36,8 +37,14 @@ export const handleGenerate = async (
       stylePreferences,
       wordLimit
     );
+
+    const recommendations = await getRecommendations(
+      resume,
+      jobDescription
+    )
     console.log('Cover letter generated successfully');
     setCoverLetter(generatedLetter);
+    setRecommendations(recommendations);
   } catch (err) {
     console.error('Generation error:', err);
     setError('Failed to generate cover letter. Please try again.');
