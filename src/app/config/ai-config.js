@@ -133,59 +133,10 @@ export const generateCoverLetter = async (resume, jobDescription, stylePreferenc
       4. Include a proper header and signature
     `;
 
-    const jobMatchPrompt = `As an expert AI recruiter, analyze the match between the candidate's resume and job description using the following structured approach:
-                TASK:
-                - Calculate a match score (0-100%)
-                - Identify key alignments and gaps
-                - Provide data-driven recommendations
-
-                ANALYSIS FRAMEWORK:
-                1. Required Skills Match (40% weight):
-                  - Technical skills alignment
-                  - Years of experience match
-                  - Tool/technology proficiency
-
-                2. Experience Relevance (30% weight):
-                  - Industry relevance
-                  - Similar role responsibilities
-                  - Project complexity match
-
-                3. Education & Certifications (15% weight):
-                  - Degree requirements match
-                  - Relevant certifications
-                  - Specialized training
-
-                4. Additional Qualifications (15% weight):
-                  - Soft skills alignment
-                  - Leadership experience (if required)
-                  - Cultural fit indicators
-
-                OUTPUT FORMAT:
-                1. Overall Match Score: [X%]
-
-                2. Key Alignments:
-                  - [List top 3-5 strongest matches]
-
-                3. Notable Gaps:
-                  - [List top 3-5 areas for improvement]
-
-                4. Recommendations:
-                  - [3 specific, actionable suggestions to improve candidacy]
-
-                Job Description:
-                ${jobDescription}
-
-                Resume:
-                ${resume}`;
-
     console.log('Sending request to Gemini API...');
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const coverLetter = response.text();
-    
-    const scoreAndRecommendationsResult = await model.generateContent(jobMatchPrompt);
-    const jobMatchPromptResponse = await scoreAndRecommendationsResult.response;
-    const jobMatchRecommendations = response.text();
 
     return coverLetter;
   } catch (err) {
@@ -228,7 +179,7 @@ export const getRecommendations = async (resume, jobDescription) => {
                   - Leadership experience (if required)
                   - Cultural fit indicators
 
-                OUTPUT FORMAT:
+                OUTPUT FORMAT (should be in plain text, not markdown):
                 1. Overall Match Score: [X%]
 
                 2. Key Alignments:

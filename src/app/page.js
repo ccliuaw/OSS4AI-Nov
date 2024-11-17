@@ -55,7 +55,7 @@ export default function Home() {
           {/* Main Content */}
           <div className="w-full max-w-3xl bg-white rounded-xl shadow-md p-6">
             <h1 className="text-3xl font-bold text-center mb-8 text-black">
-              Cover Letter Generator
+              AI Job Application Helper
             </h1>
 
             <div className="space-y-6">
