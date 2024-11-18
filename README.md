@@ -1,3 +1,20 @@
+## Introduction
+
+We create a web app to help you auto-generate a cover letter by LLM (google Gemini)
+
+#### What you need to prepare:
+
+1. your resume (a PDF file or text)
+2. job description (copy and paste)
+
+#### Work flow:
+
+1. upload yout resume
+2. paste the job description in the text box
+3. drag the sliding bar to choose the output writing style
+4. choose output word limit (optional)
+5. click Go button and you will get some recommendations for your resume and get a cover letter
+
 ![Project Screenshot](./screenshot.png)
 
 
@@ -5,7 +22,13 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+First, install the relative modules:
+
+```bash
+npm install
+```
+
+then, run the development server:
 
 ```bash
 npm run dev
@@ -37,3 +60,8 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Team members
+Sarkan, Harris, Chun-Wen, Tamir. 
+
+Created at 11/16/2024, Open Source AI Hackathon by Mocrosoft at Microsoft Reactor Redmond, WA
