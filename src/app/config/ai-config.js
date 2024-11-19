@@ -6,7 +6,7 @@ import * as pdfjs from 'pdfjs-dist';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 // Initialize Google AI
-export const genAI = new GoogleGenerativeAI('AIzaSyA_6qOLVjn20z4dMEn0YBnQbmec62ZwS8U');
+export const genAI = new GoogleGenerativeAI('AIzaSyBewINM7SMcPQUgKxy780q4KMdWF2m1zZQ');
 
 // Helper function to get text from a single page
 async function getPageText(pdf, pageNum) {
