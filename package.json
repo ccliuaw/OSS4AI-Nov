@@ -17,7 +17,7 @@
     "pdfjs-dist": "^3.11.174",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
-    "react-markdown": "^9.0.1"
+    "react-markdown": "^8.0.6"
   },
   "devDependencies": {
     "eslint": "^8",
